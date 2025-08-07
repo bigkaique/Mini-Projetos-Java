@@ -1,0 +1,46 @@
+public class EXBubbleSort {
+	public static void main(String[] args) {
+		String[] array = {"mamão","abacaxi","laranja", "limão", "maçã" };
+		EXbubbleSort(array);
+
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i]);
+
+			if (i < array.length - 1) {
+				System.out.print(" , ");
+			}
+		}
+		System.out.println();
+	}
+
+	public static void trocar(String[] v, int p1, int p2) {
+		// variável auxiliar
+		String temp = v[p1];
+		v[p1] = v[p2];
+		v[p2] = temp;
+	}
+
+
+	public static void EXbubbleSort(String[] vetor) {
+		int trocas = 0;
+		for (int i =0; i <vetor.length; i++) {
+			// variável para indicar se houve troca
+			boolean troca = false;
+			for (int K = 0; K < vetor.length - 1 - i; K++) {
+				if (vetor[K].compareTo(vetor[K + 1]) > 0) {
+					trocas++;
+					// caso haja troca, sinaliza na variável troca
+					troca = true;
+					trocar(vetor, K, K + 1);
+				}
+			}
+			// caso não haja nenhuma troca, vetor ordenado
+			if (!troca) {
+				break;
+			}
+		}
+		System.out.println(trocas);
+	}
+
+				}
+		
